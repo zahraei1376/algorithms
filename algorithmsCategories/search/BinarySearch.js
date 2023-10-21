@@ -1,4 +1,5 @@
 export const recBinarySearch = (array, x) => {
+    if (!array.length) return "not exist";
     const midIndex = Math.floor((array.length - 1) / 2)
     const midValue = array[midIndex];
     if (midValue === x) return midValue;
@@ -24,5 +25,5 @@ export const iterativeBinarySearch = (array, x) => {
             copyArray = copyArray.slice(0, midIndex);
         }
     }
-
+    return "not exist";
 }
