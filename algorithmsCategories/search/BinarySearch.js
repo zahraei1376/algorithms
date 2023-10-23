@@ -27,3 +27,22 @@ export const iterativeBinarySearch = (array, x) => {
     }
     return "not exist";
 }
+
+export const binarySearchWithLessComparison = (array, x) => {
+    if (array.length === 1) {
+        if (array[0] === x) {
+            return array[0]
+        } else {
+            return "not exist";
+        }
+    } else {
+        const midIndex = Math.floor((array.length - 1) / 2);
+        const midValue = array[midIndex];
+        if (x > midValue) {
+            return binarySearchWithLessComparison(array.slice(midIndex + 1), x);
+        } else {
+            return binarySearchWithLessComparison(array.slice(0, midIndex + 1), x);
+        }
+    }
+
+}
