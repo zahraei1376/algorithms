@@ -44,5 +44,27 @@ export const binarySearchWithLessComparison = (array, x) => {
             return binarySearchWithLessComparison(array.slice(0, midIndex + 1), x);
         }
     }
+}
 
+export const binarySearchInRotatingSequence = (array, x) => {
+    if (!array.length) return "not exist";
+    const midIndex = Math.floor((array.length - 1) / 2);
+    const midValue = array[midIndex];
+    const lastValue = array[array.length - 1];
+    if (x === midValue) return midValue;
+
+    if (midValue <= lastValue) {
+        if (x <= lastValue && x > midValue) {
+            return binarySearchInRotatingSequence(array.slice(midIndex + 1), x);
+        } else {
+            return binarySearchInRotatingSequence(array.slice(0, midIndex), x);
+        }
+    }
+    else {
+        if (x > midValue || x <= lastValue) {
+            return binarySearchInRotatingSequence(array.slice(midIndex + 1), x);
+        } else {
+            return binarySearchInRotatingSequence(array.slice(0, midIndex + 1), x);
+        }
+    }
 }
