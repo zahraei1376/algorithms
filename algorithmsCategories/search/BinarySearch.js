@@ -70,7 +70,6 @@ export const binarySearchInRotatingSequence = (array, x) => {
 }
 
 export const binarySearchInSequenceOfUnknownLength = (array, x) => {
-    // debugger;
     for (let i = 1; ; i *= 2) {
         if (!array[2 * i]) {
             return recBinarySearch(array.slice(i - 1), x);
@@ -80,4 +79,14 @@ export const binarySearchInSequenceOfUnknownLength = (array, x) => {
             return recBinarySearch(array.slice(i - 1, 2 * i), x);
         }
     }
+}
+
+export const binarySearchInSequenceOfUnknownLengthWithWhile = (array, x) => {
+    let low = 0;
+    let high = 1;
+    while (array[high] && x < array[high]) {
+        low = high;
+        high *= 2;
+    }
+    return recBinarySearch(array.slice(low, high + 1), x);
 }
