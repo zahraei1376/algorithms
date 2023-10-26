@@ -68,3 +68,11 @@ export const binarySearchInRotatingSequence = (array, x) => {
         }
     }
 }
+
+export const binarySearchInSequenceOfUnknownLength = (array, x) => {
+    for (let i = 1; i < array.length; i *= 2) {
+        if (x >= array[i - 1] && x < array[2 * i]) {
+            return recBinarySearch(array.slice(i - 1, 2 * i), x);
+        }
+    }
+}
