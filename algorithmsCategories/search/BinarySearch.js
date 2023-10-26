@@ -102,3 +102,18 @@ export const binarySearchInSequenceOfUnknownLengthWithWhile = (array, x) => {
     }
     return recBinarySearch(array.slice(low, high + 1), x);
 }
+
+export const interpolationSearch = (array, x, low = 0, high = array.length - 1) => {
+    if (!array.length) "not exist";
+
+    if (array[low] === x) {
+        return x;
+    } else {
+        let nextGuess = Math.ceil(low + (((x - array[low]) * (high - low)) / (array[high] - array[low])));
+        if (x < array[nextGuess]) {
+            return interpolationSearch(array, x, 0, nextGuess - 1);
+        } else {
+            return interpolationSearch(array, x, nextGuess, high);
+        }
+    }
+}

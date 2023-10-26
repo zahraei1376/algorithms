@@ -1,4 +1,4 @@
-import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile } from "./algorithmsCategories/search/BinarySearch";
+import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile, interpolationSearch } from "./algorithmsCategories/search/BinarySearch";
 
 const binaryArray = [10, 20, 30, 40, 50, 60];
 const spacialIndexBinaryArray = [-1, 0, 1, 2, 4, 6, 7];
@@ -10,3 +10,4 @@ console.log(binarySearchInRotatingSequence(rotateBinaryArray, 20));
 console.log(binarySearchForSpacialIndex(spacialIndexBinaryArray));
 console.log(binarySearchInSequenceOfUnknownLength(binaryArray, 20));
 console.log(binarySearchInSequenceOfUnknownLengthWithWhile(binaryArray, 20));
+console.log(interpolationSearch(binaryArray, 20));
