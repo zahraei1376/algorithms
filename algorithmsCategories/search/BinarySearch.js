@@ -69,6 +69,18 @@ export const binarySearchInRotatingSequence = (array, x) => {
     }
 }
 
+export const binarySearchForSpacialIndex = (array, low = 0, high = array.length - 1) => {
+    if (!array.length) return "not exist";
+    const midIndex = low + (Math.floor((high - low) / 2));
+    const midValue = array[midIndex];
+    if (midIndex === midValue) return midIndex;
+    if (midIndex < midValue) {
+        return binarySearchForSpacialIndex(array, low, midIndex - 1);
+    } else {
+        return binarySearchForSpacialIndex(array, midIndex + 1, array.length - 1);
+    }
+}
+
 export const binarySearchInSequenceOfUnknownLength = (array, x) => {
     for (let i = 1; ; i *= 2) {
         if (!array[2 * i]) {
