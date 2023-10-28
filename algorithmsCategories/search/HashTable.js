@@ -15,10 +15,21 @@ export class Cryptographic {
     initialize = () => {
         for (const key of this.keys) {
             const address = this.findAddress(key);
+            if (this.method === collisionMethod.CHAINING) {
+                this.chaining(address, key);
+            }
         }
     }
 
     findAddress = (key) => {
         return this.hashMethod(key);
+    }
+
+    chaining = (address, key) => {
+        if (!this.hashTable[address]) {
+            this.hashTable[address] = [key];
+        } else {
+            this.hashTable[address].unshift(key)
+        }
     }
 }
