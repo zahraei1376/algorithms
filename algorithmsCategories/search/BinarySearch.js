@@ -117,3 +117,18 @@ export const interpolationSearch = (array, x, low = 0, high = array.length - 1) 
         }
     }
 }
+
+///All Cols are ascending from top to bottom and all Rows are ascending from left to right.
+export const findInMatrix = (matrix, key) => {
+    let row = matrix.length - 1;
+    let col = 0;
+    while (row >= 0 && col >= 0) {
+        if (key === matrix[row][col]) return `i => ${row} j => ${col}`
+        else if (key > matrix[row][col]) {
+            col++;
+        } else {
+            row--;
+        }
+    }
+    return "not exist";
+}
