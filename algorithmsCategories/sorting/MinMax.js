@@ -38,3 +38,35 @@ export const minMaxWithUsingDivideAndConquerApproach = (array) => {
 
     return { min, max };
 }
+
+const swap = (array, a, b) => {
+    let temp = array[a];
+    array[a] = array[b];
+    array[b] = temp;
+}
+
+export const minMaxByComparativeMethod = (array) => {
+    let min, max;
+    if (array[0] > array[1]) {
+        max = array[0];
+        min = array[1]
+    }
+    else {
+        min = array[0];
+        max = array[1]
+    }
+
+    for (let i = 2; i < array.length; i += 2) {
+        if (array[i] > array[i + 1]) {
+            swap(array, i, i + 1);
+        }
+        if (array[i] < min) {
+            min = array[i];
+        }
+        if (array[i + 1] > max) {
+            max = array[i + 1];
+        }
+    }
+
+    return { min, max };
+}
