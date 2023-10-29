@@ -9,3 +9,4 @@ To run the Vit program, install vite and use the following commands:
 
 Implementation of search issues
 - binary search
+- hash table
