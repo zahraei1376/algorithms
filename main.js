@@ -1,6 +1,6 @@
 import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile, interpolationSearch, findInMatrix } from "./algorithmsCategories/search/BinarySearch";
 import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/HashTable";
-import { minMax } from "./algorithmsCategories/sorting/MinMax";
+import { minMax, minMaxWithUsingDivideAndConquerApproach } from "./algorithmsCategories/sorting/MinMax";
 /////////////////////////////////////////////binary search
 const binaryArray = [10, 20, 30, 40, 50, 60];
 const spacialIndexBinaryArray = [-1, 0, 1, 2, 4, 6, 7];
@@ -26,3 +26,4 @@ console.log(cryptographic2.hashTable);
 ///////////////////////////////////////////sort
 const searchArray = [2, 6, 3, 5, 9, 0, -1];
 console.log(minMax(searchArray));
+console.log(minMaxWithUsingDivideAndConquerApproach(searchArray));
