@@ -45,6 +45,10 @@ const swap = (array, a, b) => {
     array[b] = temp;
 }
 
+const evenOrNot = (number) => {
+    return number % 2 === 0
+}
+
 export const minMaxByComparativeMethod = (array) => {
     let min, max;
     if (array[0] > array[1]) {
@@ -56,7 +60,13 @@ export const minMaxByComparativeMethod = (array) => {
         max = array[1]
     }
 
-    for (let i = 2; i < array.length; i += 2) {
+
+    let len = array.length;
+    if (!evenOrNot(array.length)) {
+        len = array.length - 1;
+    }
+
+    for (let i = 2; i < len.length; i += 2) {
         if (array[i] > array[i + 1]) {
             swap(array, i, i + 1);
         }
@@ -68,5 +78,12 @@ export const minMaxByComparativeMethod = (array) => {
         }
     }
 
+    if (!evenOrNot(array.length)) {
+        if (array[array.length - 1] < min) {
+            min = array[array.length - 1];
+        } else if (array[array.length - 1] > max) {
+            max = array[array.length - 1];
+        }
+    }
     return { min, max };
 }
