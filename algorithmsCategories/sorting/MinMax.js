@@ -87,3 +87,29 @@ export const minMaxByComparativeMethod = (array) => {
     }
     return { min, max };
 }
+
+export const findSecondMinimum = (array) => {
+    const n = array.length;
+    const tree = new Array(2 * n - 1);
+    for (let i = 0; i < n; i++) {
+        tree[i + n - 1] = array[i];
+    }
+
+    for (let i = n - 2; i >= 0; i--) {
+        tree[i] = Math.min(tree[2 * i + 1], tree[2 * i + 2]);
+    }
+
+    let min = tree[0];
+    let minIndex = array.indexOf(min);
+    tree[minIndex + n - 1] = window.Infinity;
+
+    let i = min + n - 1;
+    while (i > 0) {
+        i = (i - 1) / 2;
+        tree[i] = Math.min(tree[2 * i + 1], tree[2 * i + 2]);
+    }
+
+    return tree[0];
+}
+
+
