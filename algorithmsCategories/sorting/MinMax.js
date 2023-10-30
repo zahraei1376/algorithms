@@ -89,6 +89,10 @@ export const minMaxByComparativeMethod = (array) => {
 }
 
 export const findSecondMinimum = (array) => {
+    if (array.length < 2) {
+        return "Requires an array with at least 2 elements";
+    }
+
     const n = array.length;
     const tree = new Array(2 * n - 1);
     for (let i = 0; i < n; i++) {
@@ -111,5 +115,3 @@ export const findSecondMinimum = (array) => {
 
     return tree[0];
 }
-
-
