@@ -115,3 +115,36 @@ export const findSecondMinimum = (array) => {
 
     return tree[0];
 }
+
+const partition = (array) => {
+    let j = 0;
+    const pivot = array[0];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < pivot) {
+            j++;
+            swap(array, i, j);
+        }
+    }
+    swap(array, j, 0);
+    return j;
+}
+
+const partition2 = (arr, pivot) => {
+    let j = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] <= pivot) {
+            swap(arr, i, j);
+            j++;
+        }
+    }
+    return j;
+}
+
+export const findKMinimum = (array, k) => {
+    if (array.length === 1) return array[0];
+    const pivot = partition(array);
+    const pivotIndex = pivot + 1;
+    if (pivotIndex === k) return array[pivot];
+    else if (pivotIndex > k) return findKMinimum(array.slice(0, pivotIndex), k);
+    else return findKMinimum(array.slice(pivotIndex), k - pivotIndex);
+}
