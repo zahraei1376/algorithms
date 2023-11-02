@@ -7,15 +7,15 @@ const swap = (array, a, b) => {
 export const BubbleSort = (array) => {
     for (let i = 0; i < array.length - 1; i++) {
         let swapped = false;
-        for (let j = i + 1; j < array.length; j++) {
-            if (array[j] < array[i]) {
-                swap(array, i, j);
+        for (let j = 0; j < array.length - i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                swap(array, j, j + 1);
                 swapped = true;
             }
         }
 
         if (!swapped) {
-            return;
+            return array;
         }
     }
 
