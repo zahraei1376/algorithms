@@ -148,3 +148,30 @@ export const findKMinimum = (array, k) => {
     else if (pivotIndex > k) return findKMinimum(array.slice(0, pivotIndex), k);
     else return findKMinimum(array.slice(pivotIndex), k - pivotIndex);
 }
+
+export const findKMinimumByMethodOfGroupOf5 = (array, k) => {
+    if (array.length <= 5) {
+        array.sort((a, b) => a - b);
+        return array[k - 1];
+    }
+
+    const sublists = [];
+    for (let i = 0; i < array.length; i += 5) {
+        sublists.push(array.slice(i, i + 5));
+    }
+
+    const medians = sublists.map(sublist => {
+        return findKMinimumByMethodOfGroupOf5(sublist, Math.floor(sublist.length / 2));
+    });
+
+    const medianOfMedians = findKMinimumByMethodOfGroupOf5(medians, Math.floor(medians.length / 2));
+
+    const pivot = partition(array, medianOfMedians);
+    if (k === pivot + 1) {
+        return array[pivot];
+    } else if (k < pivot + 1) {
+        return findKMinimumByMethodOfGroupOf5(array.slice(0, pivot), k);
+    } else {
+        return findKMinimumByMethodOfGroupOf5(array.slice(pivot + 1), k - (pivot + 1));
+    }
+}
