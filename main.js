@@ -1,5 +1,6 @@
 import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile, interpolationSearch, findInMatrix } from "./algorithmsCategories/search/BinarySearch";
 import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/HashTable";
+import { BubbleSort } from "./algorithmsCategories/sorting/ComparativeSorting";
 import { findKMinimum, findKMinimumByMethodOfGroupOf5, findSecondMinimum, minMax, minMaxByComparativeMethod, minMaxWithUsingDivideAndConquerApproach } from "./algorithmsCategories/sorting/MinMax";
 /////////////////////////////////////////////binary search
 const binaryArray = [10, 20, 30, 40, 50, 60];
@@ -30,4 +31,7 @@ console.log(minMaxWithUsingDivideAndConquerApproach(searchArray));
 console.log(minMaxByComparativeMethod(searchArray));
 console.log(findSecondMinimum(searchArray));
 console.log(findKMinimum(searchArray, 2));
-console.log(findKMinimumByMethodOfGroupOf5(searchArray, 2))
+console.log(findKMinimumByMethodOfGroupOf5(searchArray, 2));
+/////////////////////////////////////////comparativeSort
+const comparetiveSortArray = [-1, 10, 34, 87, 2, 5, 0, 99];
+console.log(BubbleSort(comparetiveSortArray));
