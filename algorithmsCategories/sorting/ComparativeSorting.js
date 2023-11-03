@@ -34,3 +34,16 @@ export const insertionSort = (array) => {
     }
     return tempArray;
 }
+
+
+export const insertionSortWithWhileLoop = (array) => {
+    const tempArray = [...array];
+    for (let i = 0; i < tempArray.length; i++) {
+        let j = i;
+        while (j > 0 && tempArray[j] < tempArray[j - 1]) {
+            swap(tempArray, j, j - 1);
+            j--;
+        }
+    }
+    return tempArray;
+}
