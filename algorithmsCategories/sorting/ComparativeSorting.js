@@ -47,3 +47,21 @@ export const insertionSortWithWhileLoop = (array) => {
     }
     return tempArray;
 }
+
+export const selectionSort = (array) => {
+    const tempArray = [...array];
+    for (let i = 0; i < tempArray.length - 1; i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < tempArray.length; j++) {
+            if (tempArray[j] < tempArray[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        if (i != minIndex) {
+            swap(tempArray, i, minIndex);
+        }
+    }
+
+    return tempArray;
+}
