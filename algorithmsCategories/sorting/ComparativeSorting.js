@@ -22,3 +22,15 @@ export const bubbleSort = (array) => {
 
     return tempArray;
 }
+
+export const insertionSort = (array) => {
+    const tempArray = [...array];
+    for (let i = 0; i < tempArray.length; i++) {
+        for (let j = i; j > 0; j--) {
+            if (tempArray[j] < tempArray[j - 1]) {
+                swap(tempArray, j, j - 1);
+            }
+        }
+    }
+    return tempArray;
+}
