@@ -4,20 +4,21 @@ const swap = (array, a, b) => {
     array[b] = temp;
 }
 
-export const BubbleSort = (array) => {
-    for (let i = 0; i < array.length - 1; i++) {
+export const bubbleSort = (array) => {
+    const tempArray = [...array];
+    for (let i = 0; i < tempArray.length - 1; i++) {
         let swapped = false;
-        for (let j = 0; j < array.length - i - 1; j++) {
-            if (array[j] > array[j + 1]) {
-                swap(array, j, j + 1);
+        for (let j = 0; j < tempArray.length - i - 1; j++) {
+            if (tempArray[j] > tempArray[j + 1]) {
+                swap(tempArray, j, j + 1);
                 swapped = true;
             }
         }
 
         if (!swapped) {
-            return array;
+            return tempArray;
         }
     }
 
-    return array;
+    return tempArray;
 }
