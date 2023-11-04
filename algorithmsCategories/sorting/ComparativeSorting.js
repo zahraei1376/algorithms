@@ -67,7 +67,33 @@ export const selectionSort = (array) => {
 }
 
 const merge = (leftSide, rightSide) => {
+    let i = 0;
+    let j = 0;
+    const result = [];
 
+    while (i < leftSide.length || j < rightSide.length) {
+        if (leftSide[i] < rightSide[j]) {
+            result.push(leftSide[i]);
+            i++;
+        } else {
+            result.push(rightSide[j]);
+            j++;
+        }
+    }
+
+    if (i !== leftSide.length) {
+        for (let k = i; k < leftSide.length; k++) {
+            result.push(leftSide[k]);
+        }
+    }
+
+    if (j !== rightSide.length) {
+        for (let k = i; k < rightSide.length; k++) {
+            result.push(rightSide[k]);
+        }
+    }
+
+    return result;
 }
 
 export const mergeSort = (array) => {
