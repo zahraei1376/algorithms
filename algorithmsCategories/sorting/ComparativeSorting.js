@@ -107,7 +107,16 @@ export const mergeSort = (array) => {
 }
 
 const partition = (array) => {
-
+    let j = 0;
+    const pivot = array[0];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < pivot) {
+            j++;
+            swap(array, i, j);
+        }
+    }
+    swap(array, j, 0);
+    return j;
 }
 
 export const quickSort = (array) => {
