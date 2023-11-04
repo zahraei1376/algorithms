@@ -105,3 +105,17 @@ export const mergeSort = (array) => {
     const rightSide = mergeSort(tempArray.slice(midIndex));
     return merge(leftSide, rightSide);
 }
+
+const partition = (array) => {
+
+}
+
+export const quickSort = (array) => {
+    if (array.length <= 1) return array;
+    const tempArray = [...array];
+    const pivotIndex = partition(tempArray);
+    const pivot = tempArray[pivotIndex];
+    const leftSide = quickSort(tempArray.slice(0, pivotIndex));
+    const rightSide = quickSort(tempArray.slice(pivotIndex + 1));
+    return [...leftSide, pivot, ...rightSide];
+}
