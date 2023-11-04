@@ -11,3 +11,7 @@ Implementation of search issues
 - binary search
 - hash table
 - find min max
+- sort
+    - bubble sort
+    - insertion sort
+    - selection sort   
