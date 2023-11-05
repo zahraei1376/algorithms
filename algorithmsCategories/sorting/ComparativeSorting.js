@@ -129,7 +129,10 @@ export const quickSort = (array) => {
 }
 
 const buildMinHeap = (array) => {
-
+    const len = Math.floor(array.length / 2) - 1;
+    for (let i = len; i >= 0; i--) {
+        heapify(array, i);
+    }
 }
 
 const heapify = (array, i) => {
