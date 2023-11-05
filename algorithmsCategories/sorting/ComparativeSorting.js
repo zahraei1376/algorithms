@@ -97,9 +97,8 @@ const merge = (leftSide, rightSide) => {
 }
 
 export const mergeSort = (array) => {
-    if (!array.length) return `You need an array with at least one element.`;
+    if (array.length <= 1) return array;
     const tempArray = [...array];
-    if (tempArray.length === 1) return tempArray;
     const midIndex = Math.floor(tempArray.length / 2);
     const leftSide = mergeSort(tempArray.slice(0, midIndex));
     const rightSide = mergeSort(tempArray.slice(midIndex));
