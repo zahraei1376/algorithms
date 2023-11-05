@@ -136,7 +136,20 @@ const buildMinHeap = (array) => {
 }
 
 const heapify = (array, i) => {
+    const leftChildIndex = 2 * i + 1;
+    const rightChildIndex = 2 * i + 2;
+    let minIndex = i;
+    if (leftChildIndex < array.length && array[leftChildIndex] < array[minIndex]) {
+        minIndex = 2 * i + 1;
+    }
+    if (rightChildIndex < array.length && array[rightChildIndex] < array[minIndex]) {
+        minIndex = 2 * i + 2;
+    }
 
+    if (minIndex !== i) {
+        swap(array, minIndex, i);
+        heapify(array, minIndex);
+    }
 }
 
 export const heapSort = (array) => {
