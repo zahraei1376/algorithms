@@ -127,3 +127,26 @@ export const quickSort = (array) => {
     const rightSide = quickSort(tempArray.slice(pivotIndex + 1));
     return [...leftSide, pivot, ...rightSide];
 }
+
+const buildMinHeap = (array) => {
+
+}
+
+const heapify = (array, i) => {
+
+}
+
+export const heapSort = (array) => {
+    let heap = [...array];
+    const result = [];
+    buildMinHeap(heap);
+    let i = heap.length - 1;
+    while (i >= 0) {
+        result.push(heap[0]);
+        swap(heap, 0, i);
+        heap = heap.slice(0, i);
+        heapify(heap, 0);
+        i--;
+    }
+    return result;
+}
