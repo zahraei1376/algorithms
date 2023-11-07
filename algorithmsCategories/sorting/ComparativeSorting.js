@@ -167,9 +167,25 @@ export const heapSort = (array) => {
     return result;
 }
 
+class Node {
+    constructor(value, left = null, right = null) {
+        this.left = left;
+        this.right = right;
+        this.value = value
+    }
+}
+
 class BST {
     constructor() {
         this.root = null;
+    }
+
+    insert(value) {
+        if (!this.root) {
+
+        } else {
+
+        }
     }
 
 
