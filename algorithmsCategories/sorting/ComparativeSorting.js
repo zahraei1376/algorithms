@@ -22,7 +22,7 @@ export const bubbleSort = (array) => {
 
     return tempArray;
 }
-
+/////////////////////////////////////////////
 export const insertionSort = (array) => {
     const tempArray = [...array];
     for (let i = 0; i < tempArray.length; i++) {
@@ -47,7 +47,7 @@ export const insertionSortWithWhileLoop = (array) => {
     }
     return tempArray;
 }
-
+/////////////////////////////////////////////
 export const selectionSort = (array) => {
     const tempArray = [...array];
     for (let i = 0; i < tempArray.length - 1; i++) {
@@ -65,7 +65,7 @@ export const selectionSort = (array) => {
 
     return tempArray;
 }
-
+/////////////////////////////////////////////
 const merge = (leftSide, rightSide) => {
     let i = 0;
     let j = 0;
@@ -104,7 +104,7 @@ export const mergeSort = (array) => {
     const rightSide = mergeSort(tempArray.slice(midIndex));
     return merge(leftSide, rightSide);
 }
-
+/////////////////////////////////////////////
 const partition = (array) => {
     let j = 0;
     const pivot = array[0];
@@ -127,7 +127,7 @@ export const quickSort = (array) => {
     const rightSide = quickSort(tempArray.slice(pivotIndex + 1));
     return [...leftSide, pivot, ...rightSide];
 }
-
+/////////////////////////////////////////////
 const buildMinHeap = (array) => {
     const len = Math.floor(array.length / 2) - 1;
     for (let i = len; i >= 0; i--) {
@@ -166,7 +166,7 @@ export const heapSort = (array) => {
     }
     return result;
 }
-
+/////////////////////////////////////////////
 class Node {
     constructor(value, left = null, right = null) {
         this.left = left;
@@ -222,4 +222,16 @@ export const treeSort = (array) => {
     }
     inOrder(bstTree.root, result);
     return result;
+}
+
+/////////////////////////////////////////////
+const calcNodeHeight = (node) => {
+    if (node === null) {
+        return -1
+    }
+    return Math.max(calcNodeHeight(node.right, calcNodeHeight(node.left))) + 1;
+}
+
+export const treeSortWithAVL = (array) => {
+
 }
