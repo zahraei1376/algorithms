@@ -1,6 +1,6 @@
 import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile, interpolationSearch, findInMatrix } from "./algorithmsCategories/search/BinarySearch";
 import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/HashTable";
-import { bubbleSort, heapSort, insertionSort, insertionSortWithWhileLoop, mergeSort, quickSort, selectionSort } from "./algorithmsCategories/sorting/ComparativeSorting";
+import { bubbleSort, heapSort, insertionSort, insertionSortWithWhileLoop, mergeSort, quickSort, selectionSort, treeSort } from "./algorithmsCategories/sorting/ComparativeSorting";
 import { findKMinimum, findKMinimumByMethodOfGroupOf5, findSecondMinimum, minMax, minMaxByComparativeMethod, minMaxWithUsingDivideAndConquerApproach } from "./algorithmsCategories/sorting/MinMax";
 /////////////////////////////////////////////binary search
 const binaryArray = [10, 20, 30, 40, 50, 60];
@@ -41,3 +41,4 @@ console.log(selectionSort(comparetiveSortArray));
 console.log(mergeSort(comparetiveSortArray));
 console.log(quickSort(comparetiveSortArray));
 console.log(heapSort(comparetiveSortArray));
+console.log(treeSort(comparetiveSortArray));

@@ -209,5 +209,8 @@ class BST {
 }
 
 export const treeSort = (array) => {
-    const tree = new BST();
+    const bstTree = new BST();
+    for (const element of array) {
+        bstTree.insert(element);
+    }
 }
