@@ -256,6 +256,21 @@ class AVL extends BST {
             }
         }
     }
+
+    rotateLeft = (node) => {
+        const rightChild = node.right;
+        node.right = rightChild.left;
+        rightChild.left = node;
+        rightChild.parent = node.parent;
+        node.parent = rightChild;
+        if (rightChild.parent) {
+            if (rightChild.parent.left === node) {
+                rightChild.parent.left == rightChild;
+            } else {
+                rightChild.parent.right = rightChild;
+            }
+        }
+    }
 }
 
 
