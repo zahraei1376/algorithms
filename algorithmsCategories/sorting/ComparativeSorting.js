@@ -204,8 +204,14 @@ class BST {
             }
         }
     }
+}
 
-
+const inOrder = (node, result) => {
+    if (node !== null) {
+        inOrder(node.left, result);
+        result.push(node.value);
+        inOrder(node.right, result);
+    }
 }
 
 export const treeSort = (array) => {
