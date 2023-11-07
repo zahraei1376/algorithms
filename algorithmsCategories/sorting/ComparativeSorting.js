@@ -225,17 +225,24 @@ export const treeSort = (array) => {
 }
 
 /////////////////////////////////////////////
-const calcNodeHeight = (node) => {
-    if (node === null) {
-        return -1
+class AVL extends BST {
+    constructor() {
+        super();
     }
-    return Math.max(calcNodeHeight(node.right, calcNodeHeight(node.left))) + 1;
+
+    calcNodeHeight = (node) => {
+        if (node === null) {
+            return -1
+        }
+        return Math.max(this.calcNodeHeight(node.right, this.calcNodeHeight(node.left))) + 1;
+    }
+
+    getBalanceFactore = (node) => {
+        if (node === null) return 0;
+        return this.calcNodeHeight(node.right) - this.calcNodeHeight(node.left);
+    }
 }
 
-const getBalanceFactore = (node) => {
-    if (node === null) return 0;
-    return calcNodeHeight(node.right) - calcNodeHeight(node.left);
-}
 
 export const treeSortWithAVL = (array) => {
 
