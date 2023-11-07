@@ -241,6 +241,21 @@ class AVL extends BST {
         if (node === null) return 0;
         return this.calcNodeHeight(node.right) - this.calcNodeHeight(node.left);
     }
+
+    rotateRight = (node) => {
+        const leftChild = node.left;
+        node.left = leftChild.right;
+        leftChild.right = node;
+        leftChild.parent = node.parent;
+        node.parent = leftChild;
+        if (leftChild.parent) {
+            if (leftChild.parent.left === node) {
+                leftChild.parent.left == leftChild;
+            } else {
+                leftChild.parent.right = leftChild;
+            }
+        }
+    }
 }
 
 
