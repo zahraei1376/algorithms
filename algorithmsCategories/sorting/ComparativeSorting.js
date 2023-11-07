@@ -232,6 +232,11 @@ const calcNodeHeight = (node) => {
     return Math.max(calcNodeHeight(node.right, calcNodeHeight(node.left))) + 1;
 }
 
+const getBalanceFactore = (node) => {
+    if (node === null) return 0;
+    return calcNodeHeight(node.right) - calcNodeHeight(node.left);
+}
+
 export const treeSortWithAVL = (array) => {
 
 }
