@@ -14,4 +14,7 @@ Implementation of search issues
 - sort
     - bubble sort
     - insertion sort
-    - selection sort   
+    - selection sort
+    - merge sort
+    - quick sort
+    - heap sort 
