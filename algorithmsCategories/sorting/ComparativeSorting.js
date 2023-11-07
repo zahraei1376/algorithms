@@ -181,11 +181,16 @@ class BST {
     }
 
     insert(value) {
+        const node = new Node(value);
         if (!this.root) {
-
+            this.root = node;
         } else {
-
+            this.insertNode(node);
         }
+    }
+
+    insertNode(node) {
+
     }
 
 
