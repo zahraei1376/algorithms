@@ -185,12 +185,24 @@ class BST {
         if (!this.root) {
             this.root = node;
         } else {
-            this.insertNode(node);
+            this.insertNode(this.root, node);
         }
     }
 
-    insertNode(node) {
-
+    insertNode(node, newNode) {
+        if (newNode.value > node.value) {
+            if (node.right === null) {
+                node.right = newNode;
+            } else {
+                this.insertNode(node.right, newNode);
+            }
+        } else {
+            if (node.left === null) {
+                node.left = newNode;
+            } else {
+                this.insertNode(node.left, newNode);
+            }
+        }
     }
 
 
