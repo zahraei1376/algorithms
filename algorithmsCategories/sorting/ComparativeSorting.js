@@ -275,6 +275,11 @@ class AVL extends BST {
 
         return rightChild;
     }
+
+    rotateLeftRight = (node) => {
+        node.left = this.rotateLeft(node.left);
+        return this.rotateRight(node);
+    }
 }
 
 
