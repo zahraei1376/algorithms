@@ -255,6 +255,8 @@ class AVL extends BST {
                 leftChild.parent.right = leftChild;
             }
         }
+
+        return leftChild;
     }
 
     rotateLeft = (node) => {
@@ -270,6 +272,8 @@ class AVL extends BST {
                 rightChild.parent.right = rightChild;
             }
         }
+
+        return rightChild;
     }
 }
 
