@@ -166,3 +166,15 @@ export const heapSort = (array) => {
     }
     return result;
 }
+
+class BST {
+    constructor() {
+        this.root = null;
+    }
+
+
+}
+
+export const treeSort = (array) => {
+    const tree = new BST();
+}
