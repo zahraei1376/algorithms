@@ -216,7 +216,10 @@ const inOrder = (node, result) => {
 
 export const treeSort = (array) => {
     const bstTree = new BST();
+    const result = [];
     for (const element of array) {
         bstTree.insert(element);
     }
+    inOrder(bstTree.root, result);
+    return result;
 }
