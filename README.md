@@ -11,10 +11,11 @@ Implementation of search issues
 - binary search
 - hash table
 - find min max
-- sort
+- comparative sorting
     - bubble sort
     - insertion sort
     - selection sort
     - merge sort
     - quick sort
-    - heap sort 
+    - heap sort
+    - tree sort with bst
