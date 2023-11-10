@@ -226,7 +226,7 @@ export const treeSort = (array) => {
 
 /////////////////////////////////////////////
 const BALANCE_FACTORY = {
-    HEFT_HEAVY: -1,
+    LEFT_HEAVY: -1,
     BALANCE: 0,
     RIGHT_HEAVY: 1,
 }
@@ -290,6 +290,18 @@ class AVL extends BST {
     rotateRightLeft = (node) => {
         node.right = this.rotateRight(node.right);
         return this.rotateLeft(node);
+    }
+
+    rebalance = (node) => {
+        if (!node) return;
+        const balanceFactory = this.getBalanceFactore(node);
+        if (balanceFactory < BALANCE_FACTORY.LEFT_HEAVY) {
+            if (this.getBalanceFactore(node.left) <= BALANCE_FACTORY.LEFT_HEAVY) {
+                node = this.rotateRight(node);
+            } else {
+                node = this.rotateLeftRight(node);
+            }
+        }
     }
 }
 
