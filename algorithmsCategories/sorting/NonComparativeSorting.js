@@ -12,7 +12,7 @@ export const countingSort = (array) => {
     }
 
     for (let i = copyArray.length - 1; i >= 0; i--) {
-        sortedArray[countArray[copyArray[i]]] = copyArray[i];
+        sortedArray[countArray[copyArray[i]] - 1] = copyArray[i];
         countArray[copyArray[i]]--;
     }
 
