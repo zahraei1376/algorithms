@@ -46,4 +46,4 @@ console.log(treeSort(comparetiveSortArray));
 console.log(treeSortWithAVL(comparetiveSortArray));
 //////////////////////////////////////nonComparativeSort
 const nonComparetiveSortArray = [4, 1, 4, 3, 4, 3];
-console.log(countingSort(nonComparetiveSortArray, 4));
+console.log(countingSort(nonComparetiveSortArray));
