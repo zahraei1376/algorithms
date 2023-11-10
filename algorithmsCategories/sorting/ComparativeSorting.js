@@ -301,6 +301,12 @@ class AVL extends BST {
             } else {
                 node = this.rotateLeftRight(node);
             }
+        } else if (balanceFactory > BALANCE_FACTORY.RIGHT_HEAVY) {
+            if (this.getBalanceFactore(node.right >= BALANCE_FACTORY.RIGHT_HEAVY)) {
+                node = this.rotateLeft(node);
+            } else {
+                node = this.rotateRightLeft(node);
+            }
         }
     }
 }
