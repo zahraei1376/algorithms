@@ -215,9 +215,10 @@ const inOrder = (node, result) => {
 }
 
 export const treeSort = (array) => {
+    const tempArray = [...array];
     const bstTree = new BST();
     const result = [];
-    for (const element of array) {
+    for (const element of tempArray) {
         bstTree.insert(element);
     }
     inOrder(bstTree.root, result);
@@ -296,22 +297,32 @@ class AVL extends BST {
         if (!node) return;
         const balanceFactory = this.getBalanceFactore(node);
         if (balanceFactory < BALANCE_FACTORY.LEFT_HEAVY) {
-            if (this.getBalanceFactore(node.left) <= BALANCE_FACTORY.LEFT_HEAVY) {
+            if (this.getBalanceFactore(node.left) === BALANCE_FACTORY.LEFT_HEAVY) {
                 node = this.rotateRight(node);
             } else {
                 node = this.rotateLeftRight(node);
             }
         } else if (balanceFactory > BALANCE_FACTORY.RIGHT_HEAVY) {
-            if (this.getBalanceFactore(node.right >= BALANCE_FACTORY.RIGHT_HEAVY)) {
+            if (this.getBalanceFactore(node.right === BALANCE_FACTORY.RIGHT_HEAVY)) {
                 node = this.rotateLeft(node);
             } else {
                 node = this.rotateRightLeft(node);
             }
         }
+
+        if (node.parent) {
+            this.rebalance(node.parent);
+        }
     }
 }
 
-
 export const treeSortWithAVL = (array) => {
-
+    const tempArray = [...array];
+    const avlTree = new AVL();
+    const result = [];
+    for (const element of tempArray) {
+        avlTree.insert(element);
+    }
+    inOrder(avlTree.root, result);
+    return result;
 }
