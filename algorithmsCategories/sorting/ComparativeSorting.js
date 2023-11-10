@@ -225,6 +225,12 @@ export const treeSort = (array) => {
 }
 
 /////////////////////////////////////////////
+const BALANCE_FACTORY = {
+    HEFT_HEAVY: -1,
+    BALANCE: 0,
+    RIGHT_HEAVY: 1,
+}
+
 class AVL extends BST {
     constructor() {
         super();
