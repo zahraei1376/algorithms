@@ -19,3 +19,4 @@ Implementation of search issues
     - quick sort
     - heap sort
     - tree sort with bst
+    - tree sort with AVL
