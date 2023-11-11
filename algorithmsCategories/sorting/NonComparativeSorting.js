@@ -20,7 +20,25 @@ export const countingSort = (array) => {
 }
 
 const countingSortForRadixSort = (array, place) => {
+    const countArray = new Array(10).fill(0);
+    const sortedArray = [];
 
+    for (let i = 0; i < array.length; i++) {
+        countArray[Math.floor(array[i] / place) % 10]++;
+    }
+
+    for (let i = 1; i < countArray.length; i++) {
+        countArray[i] += countArray[i - 1];
+    }
+
+    for (let i = array.length - 1; i >= 0; i--) {
+        sortedArray[countArray[Math.floor(array[i] / place) % 10] - 1] = array[i];
+        countArray[Math.floor(array[i] / place) % 10]--;
+    }
+
+    for (let i = 0; i < array.length; i++) {
+        array[i] = sortedArray[i];
+    }
 }
 
 export const radixSort = (array) => {
