@@ -2,7 +2,7 @@ import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison,
 import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/HashTable";
 import { bubbleSort, heapSort, insertionSort, insertionSortWithWhileLoop, mergeSort, quickSort, selectionSort, treeSort, treeSortWithAVL } from "./algorithmsCategories/sorting/ComparativeSorting";
 import { findKMinimum, findKMinimumByMethodOfGroupOf5, findSecondMinimum, minMax, minMaxByComparativeMethod, minMaxWithUsingDivideAndConquerApproach } from "./algorithmsCategories/sorting/MinMax";
-import { countingSort, radixSort } from "./algorithmsCategories/sorting/NonComparativeSorting";
+import { bucketSorting, countingSort, radixSort } from "./algorithmsCategories/sorting/NonComparativeSorting";
 /////////////////////////////////////////////binary search
 const binaryArray = [10, 20, 30, 40, 50, 60];
 const spacialIndexBinaryArray = [-1, 0, 1, 2, 4, 6, 7];
@@ -47,5 +47,7 @@ console.log(treeSortWithAVL(comparetiveSortArray));
 //////////////////////////////////////nonComparativeSort
 const countingSortArray = [4, 1, 4, 3, 4, 3];
 const radixSortArray = [209, 158, 109, 123];
+const bucketSortArray = [0.28, 0.62, 0.92, 0.18, 0.27, 0.54, 0.17, 0.82, 0.44, 0.29];
 console.log(countingSort(countingSortArray));
 console.log(radixSort(radixSortArray));
+console.log(bucketSorting(bucketSortArray))

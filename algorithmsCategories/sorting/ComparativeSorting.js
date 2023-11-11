@@ -1,4 +1,4 @@
-const swap = (array, a, b) => {
+export const swap = (array, a, b) => {
     let temp = array[a];
     array[a] = array[b];
     array[b] = temp;

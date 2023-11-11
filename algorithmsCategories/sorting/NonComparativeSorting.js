@@ -1,3 +1,5 @@
+import { swap } from "./ComparativeSorting";
+
 export const countingSort = (array) => {
     const copyArray = [...array];
     const max = Math.max(...array);
@@ -60,3 +62,29 @@ export const radixSort = (array) => {
 
     return copyArray;
 }
+
+const insertionSort = (array) => {
+    for (let i = 0; i < array.length; i++) {
+        let j = i;
+        while (j > 0 && array[j] < array[j - 1]) {
+            swap(array, j, j - 1);
+            j--;
+        }
+    }
+}
+
+export const bucketSorting = (array) => {
+    const arrayLength = array.length;
+    const result = new Array(arrayLength).fill().map(() => []);
+
+    for (let i = 0; i < arrayLength; i++) {
+        result[Math.floor(arrayLength * array[i])].push(array[i]);
+    }
+
+    for (let i = 0; i < arrayLength; i++) {
+        insertionSort(result[i]);
+    }
+
+    return [].concat(...result);
+}
+
