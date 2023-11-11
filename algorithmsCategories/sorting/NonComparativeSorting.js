@@ -18,3 +18,27 @@ export const countingSort = (array) => {
 
     return sortedArray;
 }
+
+const countingSortForRadixSort = (array, place) => {
+
+}
+
+export const radixSort = (array) => {
+    if (array.length < 2) return array;
+
+    for (const element of array) {
+        if (!Number.isInteger(element)) {
+            return `found non-integer value in array`;
+        } else if (element < 0) {
+            return `found negative value in array`;
+        }
+    }
+
+    const copyArray = [...array];
+    const max = Math.max(...array);
+    for (let i = 1; Math.floor(max / i) > 0; i *= 10) {
+        countingSortForRadixSort(copyArray, i);
+    }
+
+    return copyArray;
+}
