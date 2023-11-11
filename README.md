@@ -20,3 +20,6 @@ Implementation of search issues
     - heap sort
     - tree sort with bst
     - tree sort with AVL
+- non comparative sorting
+    - counting sort
+    - radix sort
