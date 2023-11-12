@@ -23,3 +23,4 @@ Implementation of search issues
 - non comparative sorting
     - counting sort
     - radix sort
+    - bucket sort
