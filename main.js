@@ -1,4 +1,4 @@
-import { fibonancciDividAndConquer } from "./algorithmsCategories/dynamicProgramming/Fibonacci";
+import { fibonancciDividAndConquer, fibonancciDynamicProgramming } from "./algorithmsCategories/dynamicProgramming/Fibonacci";
 import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile, interpolationSearch, findInMatrix } from "./algorithmsCategories/search/BinarySearch";
 import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/HashTable";
 import { bubbleSort, heapSort, insertionSort, insertionSortWithWhileLoop, mergeSort, quickSort, selectionSort, treeSort, treeSortWithAVL } from "./algorithmsCategories/sorting/ComparativeSorting";
@@ -54,3 +54,4 @@ console.log(radixSort(radixSortArray));
 console.log(bucketSorting(bucketSortArray));
 ///////////////////////////////////////dynamic programming
 console.log(fibonancciDividAndConquer(10));
+console.log(fibonancciDynamicProgramming(10));
