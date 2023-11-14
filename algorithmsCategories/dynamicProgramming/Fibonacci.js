@@ -15,3 +15,14 @@ export const fibonancciDynamicProgramming = (n) => {
     }
     return f;
 }
+
+const powerMatrix = (baseMatrix, n) => {
+
+}
+
+export const fibonancciwithOrderTimeLogn = (n) => {
+    if (n <= 1) return n;
+    const baseMatrix = [[1, 1], [1, 0]]
+    const resultMatrix = powerMatrix(baseMatrix, n - 1);
+    return resultMatrix[0][0];
+}
