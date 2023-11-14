@@ -37,12 +37,21 @@ const multiplyMatrix = (matrix1, matrix2) => {
     return result;
 }
 
-const powerMatrix = (baseMatrix, n) => {
-
+const powerMatrix = (matrix, n) => {
+    if (n === 1) return matrix;
+    if (n % 2 === 0) {
+        const halfPower = powerMatrix(matrix, n / 2);
+        return multiplyMatrix(halfPower, halfPower);
+    } else {
+        const halfPower = powerMatrix(matrix, (n - 1) / 2);
+        const squaredMatrix = multiplyMatrix(halfPower, halfPower);
+        return multiplyMatrix(matrix, squaredMatrix);
+    }
 }
 
 export const fibonancciwithOrderTimeLogn = (n) => {
-    if (n <= 1) return n;
+    if (n === 0) return 0;
+    if (n === 1 || n === 2) return 1;
     const baseMatrix = [[1, 1], [1, 0]]
     const resultMatrix = powerMatrix(baseMatrix, n - 1);
     return resultMatrix[0][0];
