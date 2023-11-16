@@ -1,4 +1,5 @@
 import { fibonancciDividAndConquer, fibonancciDynamicProgramming, fibonancciwithOrderTimeLogn } from "./algorithmsCategories/dynamicProgramming/Fibonacci";
+import { chainMultiplicationOfMatrices } from "./algorithmsCategories/dynamicProgramming/multiplicationMatrices";
 import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile, interpolationSearch, findInMatrix } from "./algorithmsCategories/search/BinarySearch";
 import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/HashTable";
 import { bubbleSort, heapSort, insertionSort, insertionSortWithWhileLoop, mergeSort, quickSort, selectionSort, treeSort, treeSortWithAVL } from "./algorithmsCategories/sorting/ComparativeSorting";
@@ -56,3 +57,5 @@ console.log(bucketSorting(bucketSortArray));
 console.log(fibonancciDividAndConquer(10));
 console.log(fibonancciDynamicProgramming(10));
 console.log(fibonancciwithOrderTimeLogn(10));
+const dimensions = [30, 40, 50, 60, 70];
+console.log(chainMultiplicationOfMatrices(dimensions));
