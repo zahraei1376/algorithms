@@ -24,3 +24,8 @@ Implementation of search issues
     - counting sort
     - radix sort
     - bucket sort
+      
+Implementation of dynamic programming
+
+- fibonancci
+- multiplication of matrices
