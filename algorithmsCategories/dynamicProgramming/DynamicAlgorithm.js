@@ -29,7 +29,7 @@ export const floyd = (adjacencyMatrix) => {
     for (let k = 0; k < n; k++) {
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
-                if (i !== k || j !== k) {
+                if (i !== k || j !== k || i === j) {
                     adjacencyMatrix[i][j] = Math.min(adjacencyMatrix[i][j], adjacencyMatrix[i][k] + adjacencyMatrix[k][j]);
                 }
             }
