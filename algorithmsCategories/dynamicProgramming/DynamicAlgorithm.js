@@ -23,8 +23,12 @@ export const chainMultiplicationOfMatrices = (dimensions) => {
     return costs[1][n - 1];
 }
 
+const deepCopy2DArray = (array) => {
+    return array.map(row => row.slice());
+}
+
 export const floyd = (adjacencyMatrix) => {
-    const adjacency = [...adjacencyMatrix];
+    const adjacency = deepCopy2DArray(adjacencyMatrix);
     const n = adjacency.length;
     for (let k = 0; k < n; k++) {
         for (let i = 0; i < n; i++) {
@@ -40,7 +44,7 @@ export const floyd = (adjacencyMatrix) => {
 }
 
 export const findPathInFord = (adjacencyMatrix) => {
-    const adjacency = [...adjacencyMatrix];
+    const adjacency = deepCopy2DArray(adjacencyMatrix);
     const n = adjacency.length;
     const pathes = new Array(n).fill().map(() => new Array(n).fill(-1));
     for (let k = 0; k < n; k++) {
