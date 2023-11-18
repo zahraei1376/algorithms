@@ -22,3 +22,19 @@ export const chainMultiplicationOfMatrices = (dimensions) => {
 
     return costs[1][n - 1];
 }
+
+export const floyd = (adjacencyMatrix) => {
+    const n = adjacencyMatrix.length;
+
+    for (let k = 0; k < n; k++) {
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                if (i !== k || j !== k) {
+                    adjacencyMatrix[i][j] = Math.min(adjacencyMatrix[i][j], adjacencyMatrix[i][k] + adjacencyMatrix[k][j]);
+                }
+            }
+        }
+    }
+
+    return adjacencyMatrix;
+}
