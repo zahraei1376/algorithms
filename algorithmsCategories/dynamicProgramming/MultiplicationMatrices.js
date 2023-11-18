@@ -1,14 +1,13 @@
 export const chainMultiplicationOfMatrices = (dimensions) => {
-    debugger;
     const n = dimensions.length;
     const costs = new Array(n).fill().map(() => new Array(n));
     const breaks = new Array(n).fill().map(() => new Array(n));
     for (let i = 0; i < n; i++) {
         costs[i][i] = 0;
     }
-
-    for (let len = 1; len < n; len++) {
-        for (let i = 1; i <= n - len; i++) {
+    //len < n is correct
+    for (let len = 1; len < n - 1; len++) {
+        for (let i = 1; i < n - len; i++) {
             let j = i + len;
             costs[i][j] = window.Infinity;
             for (let k = i; k < j; k++) {
@@ -21,5 +20,5 @@ export const chainMultiplicationOfMatrices = (dimensions) => {
         }
     }
 
-    // return { breaks, costs }
+    return costs[1][n - 1];
 }
