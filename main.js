@@ -1,5 +1,5 @@
 import { fibonancciDividAndConquer, fibonancciDynamicProgramming, fibonancciwithOrderTimeLogn } from "./algorithmsCategories/dynamicProgramming/Fibonacci";
-import { chainMultiplicationOfMatrices, floyd } from "./algorithmsCategories/dynamicProgramming/DynamicAlgorithm";
+import { chainMultiplicationOfMatrices, findPathInFord, floyd } from "./algorithmsCategories/dynamicProgramming/DynamicAlgorithm";
 import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile, interpolationSearch, findInMatrix } from "./algorithmsCategories/search/BinarySearch";
 import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/HashTable";
 import { bubbleSort, heapSort, insertionSort, insertionSortWithWhileLoop, mergeSort, quickSort, selectionSort, treeSort, treeSortWithAVL } from "./algorithmsCategories/sorting/ComparativeSorting";
@@ -60,4 +60,8 @@ console.log(fibonancciwithOrderTimeLogn(10));
 const dimensions = [30, 40, 50, 60, 70];
 console.log(chainMultiplicationOfMatrices(dimensions));
 const adjacencyMatrix = [[0, 3, window.Infinity, 7], [8, 0, 2, window.Infinity], [5, window.Infinity, 0, 1], [2, window.Infinity, window.Infinity, 0]];
+console.log(JSON.parse(JSON.stringify(adjacencyMatrix)));
 console.log(floyd(adjacencyMatrix));
+console.log(JSON.parse(JSON.stringify(adjacencyMatrix)));
+console.log(findPathInFord(adjacencyMatrix));
+console.log(JSON.parse(JSON.stringify(adjacencyMatrix)));
