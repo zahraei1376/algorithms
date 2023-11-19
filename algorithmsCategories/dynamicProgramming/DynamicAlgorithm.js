@@ -43,6 +43,20 @@ export const floyd = (adjacencyMatrix) => {
     return adjacency;
 }
 
+const printShortestPath = (pathes, i, j, result) => {
+    const path = pathes[i][j];
+    if (path !== -1) {
+        result = printShortestPath(pathes, i, path, result);
+        if (!result) {
+            result += `${i} => ${path} => ${j}`;
+        } else {
+            result += ` => ${j}`;
+        }
+
+    }
+    return result;
+}
+
 export const findPathInFord = (adjacencyMatrix) => {
     const adjacency = deepCopy2DArray(adjacencyMatrix);
     const n = adjacency.length;
@@ -57,5 +71,7 @@ export const findPathInFord = (adjacencyMatrix) => {
             }
         }
     }
-    return pathes;
+    let result = "";
+    result = printShortestPath(pathes, 0, 3, result);
+    return result;
 }
