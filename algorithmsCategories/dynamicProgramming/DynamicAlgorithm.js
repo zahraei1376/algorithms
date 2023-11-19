@@ -33,7 +33,7 @@ export const floyd = (adjacencyMatrix) => {
     for (let k = 0; k < n; k++) {
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
-                if (i !== k || j !== k || i !== j) {
+                if (i !== k && j !== k && i !== j) {
                     adjacency[i][j] = Math.min(adjacency[i][j], adjacency[i][k] + adjacency[k][j]);
                 }
             }
@@ -64,10 +64,13 @@ export const findPathInFord = (adjacencyMatrix) => {
                     pathes[i][j] = window.Infinity;
                 }
 
-                if (adjacency[i][j] > adjacency[i][k] + adjacency[k][j]) {
-                    adjacency[i][j] = adjacency[i][k] + adjacency[k][j];
-                    pathes[i][j] = k;
+                if (i !== k && j !== k && i !== j) {
+                    if (adjacency[i][j] > adjacency[i][k] + adjacency[k][j]) {
+                        adjacency[i][j] = adjacency[i][k] + adjacency[k][j];
+                        pathes[i][j] = k;
+                    }
                 }
+
             }
         }
     }
@@ -78,7 +81,21 @@ export const shortestPathes = (adjacencyMatrix) => {
     const pathes = findPathInFord(adjacencyMatrix);
     let result = "";
     for (let i = 1; i < adjacencyMatrix.length; i++) {
-        result += printShortestPath(pathes, 0, i, result) + "\n";
+        result += printShortestPath(pathes, 0, i) + "\n";
     }
     return result;
+}
+
+export const negativeCircleOrNOtByFoyd = (adjacencyMatrix) => {
+    const n = adjacencyMatrix.length;
+    const adjacency = floyd(adjacencyMatrix);
+
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (adjacency[i][j] < 0)
+                return true;
+        }
+    }
+
+    return false;
 }
