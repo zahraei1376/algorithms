@@ -43,18 +43,13 @@ export const floyd = (adjacencyMatrix) => {
     return adjacency;
 }
 
-const printShortestPath = (pathes, i, j, result) => {
+const printShortestPath = (pathes, i, j) => {
     const path = pathes[i][j];
-    if (path !== -1) {
-        result = printShortestPath(pathes, i, path, result);
-        if (!result) {
-            result += `${i} => ${path} => ${j}`;
-        } else {
-            result += ` => ${j}`;
-        }
-
+    if (path === -1) return `${i} => ${j}`;
+    else {
+        let result = printShortestPath(pathes, i, path);
+        return result += ` => ${j}`
     }
-    return result;
 }
 
 export const findPathInFord = (adjacencyMatrix) => {
@@ -71,7 +66,10 @@ export const findPathInFord = (adjacencyMatrix) => {
             }
         }
     }
+
     let result = "";
-    result = printShortestPath(pathes, 0, 3, result);
+    for (let i = 1; i < n; i++) {
+        result += printShortestPath(pathes, 0, i, result) + "\n";
+    }
     return result;
 }
