@@ -1,5 +1,5 @@
 import { fibonancciDividAndConquer, fibonancciDynamicProgramming, fibonancciwithOrderTimeLogn } from "./algorithmsCategories/dynamicProgramming/Fibonacci";
-import { chainMultiplicationOfMatrices, findPathInFord, floyd } from "./algorithmsCategories/dynamicProgramming/DynamicAlgorithm";
+import { chainMultiplicationOfMatrices, findPathInFord, floyd, shortestPathes } from "./algorithmsCategories/dynamicProgramming/DynamicAlgorithm";
 import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile, interpolationSearch, findInMatrix } from "./algorithmsCategories/search/BinarySearch";
 import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/HashTable";
 import { bubbleSort, heapSort, insertionSort, insertionSortWithWhileLoop, mergeSort, quickSort, selectionSort, treeSort, treeSortWithAVL } from "./algorithmsCategories/sorting/ComparativeSorting";
@@ -63,3 +63,4 @@ const adjacencyMatrix = [[0, 3, window.Infinity, 7], [8, 0, 2, window.Infinity],
 // const adjacencyMatrix = [[0, 3, window.Infinity, window.Infinity], [8, 0, 2, window.Infinity], [5, window.Infinity, 0, window.Infinity], [2, window.Infinity, 1, 0]];
 console.log(floyd(adjacencyMatrix));
 console.log(findPathInFord(adjacencyMatrix));
+console.log(shortestPathes(adjacencyMatrix));

@@ -71,9 +71,13 @@ export const findPathInFord = (adjacencyMatrix) => {
             }
         }
     }
+    return pathes;
+}
 
+export const shortestPathes = (adjacencyMatrix) => {
+    const pathes = findPathInFord(adjacencyMatrix);
     let result = "";
-    for (let i = 1; i < n; i++) {
+    for (let i = 1; i < adjacencyMatrix.length; i++) {
         result += printShortestPath(pathes, 0, i, result) + "\n";
     }
     return result;
