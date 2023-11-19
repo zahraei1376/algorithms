@@ -45,6 +45,7 @@ export const floyd = (adjacencyMatrix) => {
 
 const printShortestPath = (pathes, i, j) => {
     const path = pathes[i][j];
+    if (path === window.Infinity) return `${i} => ${j} no path`;
     if (path === -1) return `${i} => ${j}`;
     else {
         let result = printShortestPath(pathes, i, path);
@@ -59,6 +60,10 @@ export const findPathInFord = (adjacencyMatrix) => {
     for (let k = 0; k < n; k++) {
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
+                if (adjacency[i][j] === window.Infinity) {
+                    pathes[i][j] = window.Infinity;
+                }
+
                 if (adjacency[i][j] > adjacency[i][k] + adjacency[k][j]) {
                     adjacency[i][j] = adjacency[i][k] + adjacency[k][j];
                     pathes[i][j] = k;

@@ -60,5 +60,6 @@ console.log(fibonancciwithOrderTimeLogn(10));
 const dimensions = [30, 40, 50, 60, 70];
 console.log(chainMultiplicationOfMatrices(dimensions));
 const adjacencyMatrix = [[0, 3, window.Infinity, 7], [8, 0, 2, window.Infinity], [5, window.Infinity, 0, 1], [2, window.Infinity, window.Infinity, 0]];
+// const adjacencyMatrix = [[0, 3, window.Infinity, window.Infinity], [8, 0, 2, window.Infinity], [5, window.Infinity, 0, window.Infinity], [2, window.Infinity, 1, 0]];
 console.log(floyd(adjacencyMatrix));
 console.log(findPathInFord(adjacencyMatrix));
