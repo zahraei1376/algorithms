@@ -30,3 +30,4 @@ Implementation of dynamic programming
 - fibonancci
 - multiplication of matrices
 - floyd
+- back pack 0/1
