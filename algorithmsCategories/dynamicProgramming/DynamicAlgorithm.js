@@ -22,3 +22,22 @@ export const chainMultiplicationOfMatrices = (dimensions) => {
 
     return costs[1][n - 1];
 }
+
+export const backPack = (weights, values, totalWeight) => {
+    const n = weights.length;
+    const matrix = new Array(n).fill().map(() => new Array(totalWeight + 1));
+
+    for (let i = 0; i < n; i++) {
+        for (let weight = 0; weight <= totalWeight; weight++) {
+            if (i === 0 || weight === 0) {
+                matrix[i][weight] = 0;
+            } else if (weights[i] <= weight) {
+                matrix[i][weight] = Math.max(values[i] + matrix[i - 1][weight - weights[i]], matrix[i - 1][weight]);
+            } else {
+                matrix[i][weight] = matrix[i - 1][weight];
+            }
+        }
+    }
+
+    return matrix[n - 1][totalWeight];
+}
