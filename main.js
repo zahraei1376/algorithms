@@ -1,6 +1,6 @@
 import { fibonancciDividAndConquer, fibonancciDynamicProgramming, fibonancciwithOrderTimeLogn } from "./algorithmsCategories/dynamicProgramming/Fibonacci";
 import { findPathInFord, floyd, negativeCircleOrNOtByFoyd, shortestPathes } from "./algorithmsCategories/dynamicProgramming/Floyd";
-import { backPack, chainMultiplicationOfMatrices } from "./algorithmsCategories/dynamicProgramming/DynamicAlgorithm";
+import { backPack, chainMultiplicationOfMatrices, itemsInBackPack } from "./algorithmsCategories/dynamicProgramming/DynamicAlgorithm";
 import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile, interpolationSearch, findInMatrix } from "./algorithmsCategories/search/BinarySearch";
 import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/HashTable";
 import { bubbleSort, heapSort, insertionSort, insertionSortWithWhileLoop, mergeSort, quickSort, selectionSort, treeSort, treeSortWithAVL } from "./algorithmsCategories/sorting/ComparativeSorting";
@@ -68,4 +68,5 @@ console.log(shortestPathes(adjacencyMatrix));
 console.log(negativeCircleOrNOtByFoyd(adjacencyMatrix));
 const weights = [2, 3, 4, 5];
 const prices = [1, 2, 5, 6];
-console.log(backPack(weights, prices, 8));
+console.log(backPack(weights, prices, 8).maxPrice);
+console.log(itemsInBackPack(weights, prices, 8));

@@ -43,5 +43,21 @@ export const backPack = (weights, prices, totalWeight) => {
         }
     }
 
-    return matrix[n - 1][totalWeight];
+    return { maxPrice: matrix[n - 1][totalWeight], matrix };
+}
+
+export const itemsInBackPack = (weights, prices, totalWeight) => {
+    const matrix = backPack(weights, prices, totalWeight).matrix;
+    const result = new Array(weights.length).fill(0);
+    let i = weights.length - 1;
+    let j = totalWeight;
+    while (i > 0 && j > 0) {
+        if (matrix[i][j] === matrix[i - 1][j]) {
+            i--;
+        } else {
+            result[i] = 1;
+            j = j - weights[i];
+        }
+    }
+    return result;
 }
