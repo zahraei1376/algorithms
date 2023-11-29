@@ -61,3 +61,26 @@ export const itemsInBackPack = (weights, prices, totalWeight) => {
     }
     return result;
 }
+
+const tspHelper = (mask, pos, graph) => {
+    const n = graph.length
+    if (mask === (1 << n) - 1) {
+        return graph[pos][0]
+    }
+
+    let minCost = window.Infinity;
+    for (let city = 0; city < n; city++) {
+        if ((mask & 1 << city) === 0) {
+            let newMask = mask | 1 << city;
+            let cost = graph[pos][city] + tspHelper(newMask, city, graph);
+            minCost = Math.min(cost, minCost);
+        }
+    }
+
+    return minCost;
+}
+
+export const tsp = (graph) => {
+    return tspHelper(1, 0, graph);
+}
+
