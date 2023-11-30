@@ -64,10 +64,15 @@ export const itemsInBackPack = (weights, prices, totalWeight) => {
 
 export const tsp = (graph) => {
     const n = graph.length;
+    const memo = new Array(1 << n).fill(null).map(() => new Array(n).fill(null));
 
     function tspHelper(mask, pos) {
         if (mask === (1 << n) - 1) {
             return graph[pos][0];
+        }
+
+        if (memo[mask][pos] !== null) {
+            return memo[mask][pos];
         }
 
         let minCost = Infinity;
@@ -79,6 +84,7 @@ export const tsp = (graph) => {
             }
         }
 
+        memo[mask][pos] = minCost;
         return minCost;
     }
 
