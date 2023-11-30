@@ -71,7 +71,7 @@ const merge = (leftSide, rightSide) => {
     let j = 0;
     const result = [];
 
-    while (i < leftSide.length || j < rightSide.length) {
+    while (i < leftSide.length && j < rightSide.length) {
         if (leftSide[i] < rightSide[j]) {
             result.push(leftSide[i]);
             i++;
@@ -88,7 +88,7 @@ const merge = (leftSide, rightSide) => {
     }
 
     if (j !== rightSide.length) {
-        for (let k = i; k < rightSide.length; k++) {
+        for (let k = j; k < rightSide.length; k++) {
             result.push(rightSide[k]);
         }
     }
