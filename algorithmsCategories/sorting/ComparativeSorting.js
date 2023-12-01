@@ -96,6 +96,28 @@ const merge = (leftSide, rightSide) => {
     return result;
 }
 
+export const mergeWithSaveResultInNums1 = (nums1, m, nums2, n) => {
+    let i = 0;
+    let j = 0;
+    while (i < m && j < n) {
+        if (nums1[i] < nums2[j]) {
+            i++;
+        } else {
+            nums1.splice(i, 0, nums2[j]);
+            i++;
+            j++;
+        }
+    }
+
+    if (j !== n) {
+        for (let k = j; k < n; k++) {
+            nums1.push(nums2[k]);
+        }
+    }
+
+    nums1 = nums1.filter(num => num !== 0);
+};
+
 export const mergeSort = (array) => {
     if (array.length <= 1) return array;
     const tempArray = [...array];
