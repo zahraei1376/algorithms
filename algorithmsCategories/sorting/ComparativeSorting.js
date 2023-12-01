@@ -97,25 +97,31 @@ const merge = (leftSide, rightSide) => {
 }
 
 export const mergeWithSaveResultInNums1 = (nums1, m, nums2, n) => {
-    let i = 0;
-    let j = 0;
-    while (i < m && j < n) {
-        if (nums1[i] < nums2[j]) {
-            i++;
+    let i = m - 1;
+    let j = n - 1;
+    let k = m + n - 1;
+    while (i >= 0 && j >= 0) {
+        if (nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i];
+            i--;
         } else {
-            nums1.splice(i, 0, nums2[j]);
-            i++;
-            j++;
+            nums1[k] = nums2[j];
+            j--;
         }
+        k--;
     }
 
-    if (j !== n) {
-        for (let k = j; k < n; k++) {
-            nums1.push(nums2[k]);
-        }
+    while (i >= 0) {
+        nums1[k] = nums1[i];
+        i--;
+        k--;
     }
 
-    nums1 = nums1.filter(num => num !== 0);
+    while (j >= 0) {
+        nums1[k] = nums2[j];
+        j--;
+        k--;
+    }
 };
 
 export const mergeSort = (array) => {
