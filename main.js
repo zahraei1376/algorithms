@@ -1,6 +1,6 @@
 import { fibonancciDividAndConquer, fibonancciDynamicProgramming, fibonancciwithOrderTimeLogn } from "./algorithmsCategories/dynamicProgramming/Fibonacci";
 import { findPathInFord, floyd, negativeCircleOrNOtByFoyd, shortestPathes } from "./algorithmsCategories/dynamicProgramming/Floyd";
-import { backPack, chainMultiplicationOfMatrices, itemsInBackPack, tsp } from "./algorithmsCategories/dynamicProgramming/DynamicAlgorithm";
+import { backPack, chainMultiplicationOfMatrices, itemsInBackPack, optimalBstForSuccessful, tsp } from "./algorithmsCategories/dynamicProgramming/DynamicAlgorithm";
 import { recBinarySearch, iterativeBinarySearch, binarySearchWithLessComparison, binarySearchInRotatingSequence, binarySearchForSpacialIndex, binarySearchInSequenceOfUnknownLength, binarySearchInSequenceOfUnknownLengthWithWhile, interpolationSearch, findInMatrix } from "./algorithmsCategories/search/BinarySearch";
 import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/HashTable";
 import { bubbleSort, heapSort, insertionSort, insertionSortWithWhileLoop, mergeSort, mergeWithSaveResultInNums1, quickSort, selectionSort, treeSort, treeSortWithAVL } from "./algorithmsCategories/sorting/ComparativeSorting";
@@ -84,3 +84,7 @@ const salePersonMatrix = [
 ];
 
 console.log(tsp(salePersonMatrix));
+//optimal BST for successful search
+const bstKeys = [10, 20, 30, 40];
+const bstFrequency = [4, 2, 6, 3];
+console.log(optimalBstForSuccessful(bstKeys, bstFrequency));

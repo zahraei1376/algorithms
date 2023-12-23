@@ -91,4 +91,37 @@ export const tsp = (graph) => {
     return tspHelper(1, 0);
 }
 
+export const optimalBstForSuccessful = (keys, frequency) => {
+    // debugger;
+    const sum = (array, i, j) => {
+        let result = 0;
+        for (let k = i; k <= j; k++) {
+            result += array[k];
+        }
+        return result;
+    }
 
+    const n = keys.length;
+    const costs = new Array(n).fill().map(() => new Array(n).fill(0));
+    const breaks = new Array(n).fill().map(() => new Array(n).fill(0));
+    for (let i = 0; i < n; i++) {
+        breaks[i][i] = 0;
+        costs[i][i] = 0;
+    }
+
+    for (let len = 1; len < n; len++) {
+        for (let i = 0; i < n - len; i++) {
+            let j = i + len;
+            costs[i][j] = Infinity;
+            for (let k = i + 1; k <= j; k++) {
+                const leftSide = costs[i][k - 1];
+                const rightSide = costs[k][j];
+                const rootConst = sum(frequency, i, j);
+                costs[i][j] = Math.min(costs[i][j], leftSide + rightSide + rootConst);
+            }
+
+        }
+    }
+    console.log(costs);
+    return costs[0][n - 1];
+}
