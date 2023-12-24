@@ -91,18 +91,19 @@ export const tsp = (graph) => {
     return tspHelper(1, 0);
 }
 
-export const optimalBstForSuccessful = (keys, frequency) => {
-    const sum = (array, i, j) => {
-        let result = 0;
-        for (let k = i; k <= j; k++) {
-            result += array[k];
-        }
-        return result;
+const sum = (array, i, j) => {
+    let result = 0;
+    for (let k = i; k <= j; k++) {
+        result += array[k];
     }
+    return result;
+}
 
+export const optimalBstForSuccessful = (keys, frequency) => {
     const n = keys.length;
     const costs = new Array(n).fill().map(() => new Array(n).fill(0));
     const breaks = new Array(n).fill().map(() => new Array(n).fill(0));
+
     for (let i = 0; i < n; i++) {
         costs[i][i] = frequency[i];
     }
@@ -118,6 +119,35 @@ export const optimalBstForSuccessful = (keys, frequency) => {
                 const subTreeCost = leftSide + rightSide + rootConst;
                 if (costs[i][j] > subTreeCost) {
                     costs[i][j] = subTreeCost;
+                    breaks[i][j] = k;
+                }
+            }
+        }
+    }
+
+    return costs[0][n - 1];
+}
+
+export const optimalBst = (keys, successProbability, failedProbability) => {
+    const n = keys.length;
+    const costs = new Array(n).fill().map(() => new Array(n).fill(0));
+    const breaks = new Array(n).fill().map(() => new Array(n).fill(-1));
+
+    for (let i = 0; i < n; i++) {
+        costs[i][i] = successProbability[i] + failedProbability[i];
+    }
+
+    for (let len = 1; len < n; len++) {
+        for (let i = 0; i < n - len; i++) {
+            const j = len + i;
+            costs[i][j] = Infinity;
+            for (let k = i; k <= j; k++) {
+                const leftSide = k > i ? costs[i][k - 1] : 0;
+                const rightSide = k < j ? costs[k + 1][j] : 0;
+                const rootCost = sum(successProbability, i, j) + sum(failedProbability, i, j);
+                const cost = leftSide + rightSide + rootCost;
+                if (costs[i][j] > cost) {
+                    costs[i][j] = cost;
                     breaks[i][j] = k;
                 }
             }
