@@ -92,7 +92,6 @@ export const tsp = (graph) => {
 }
 
 export const optimalBstForSuccessful = (keys, frequency) => {
-    // debugger;
     const sum = (array, i, j) => {
         let result = 0;
         for (let k = i; k <= j; k++) {
@@ -105,23 +104,25 @@ export const optimalBstForSuccessful = (keys, frequency) => {
     const costs = new Array(n).fill().map(() => new Array(n).fill(0));
     const breaks = new Array(n).fill().map(() => new Array(n).fill(0));
     for (let i = 0; i < n; i++) {
-        breaks[i][i] = 0;
-        costs[i][i] = 0;
+        costs[i][i] = frequency[i];
     }
 
     for (let len = 1; len < n; len++) {
         for (let i = 0; i < n - len; i++) {
             let j = i + len;
             costs[i][j] = Infinity;
-            for (let k = i + 1; k <= j; k++) {
-                const leftSide = costs[i][k - 1];
-                const rightSide = costs[k][j];
+            for (let k = i; k <= j; k++) {
+                const leftSide = (k > i) ? costs[i][k - 1] : 0;
+                const rightSide = (k < j) ? costs[k + 1][j] : 0;
                 const rootConst = sum(frequency, i, j);
-                costs[i][j] = Math.min(costs[i][j], leftSide + rightSide + rootConst);
+                const subTreeCost = leftSide + rightSide + rootConst;
+                if (costs[i][j] > subTreeCost) {
+                    costs[i][j] = subTreeCost;
+                    breaks[i][j] = k;
+                }
             }
-
         }
     }
-    console.log(costs);
+
     return costs[0][n - 1];
 }

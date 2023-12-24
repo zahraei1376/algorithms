@@ -85,6 +85,6 @@ const salePersonMatrix = [
 
 console.log(tsp(salePersonMatrix));
 //optimal BST for successful search
-const bstKeys = [10, 20, 30, 40];
-const bstFrequency = [4, 2, 6, 3];
-console.log(optimalBstForSuccessful(bstKeys, bstFrequency));
+const keys = [1, 2, 3];
+const probabilities = [0.7, 0.2, 0.1];
+console.log(optimalBstForSuccessful(keys, probabilities));
