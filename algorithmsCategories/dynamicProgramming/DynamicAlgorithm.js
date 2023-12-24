@@ -144,7 +144,7 @@ export const optimalBst = (keys, successProbability, failedProbability) => {
             for (let k = i; k <= j; k++) {
                 const leftSide = k > i ? costs[i][k - 1] : 0;
                 const rightSide = k < j ? costs[k + 1][j] : 0;
-                const rootCost = sum(successProbability, i, j) + sum(failedProbability, i, j);
+                const rootCost = sum(successProbability, i, j) + sum(failedProbability, i, j + 1);
                 const cost = leftSide + rightSide + rootCost;
                 if (costs[i][j] > cost) {
                     costs[i][j] = cost;
