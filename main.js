@@ -6,6 +6,7 @@ import { Cryptographic, collisionMethod } from "./algorithmsCategories/search/Ha
 import { bubbleSort, heapSort, insertionSort, insertionSortWithWhileLoop, mergeSort, mergeWithSaveResultInNums1, quickSort, selectionSort, treeSort, treeSortWithAVL } from "./algorithmsCategories/sorting/ComparativeSorting";
 import { findKMinimum, findKMinimumByMethodOfGroupOf5, findSecondMinimum, minMax, minMaxByComparativeMethod, minMaxWithUsingDivideAndConquerApproach } from "./algorithmsCategories/sorting/MinMax";
 import { bucketSorting, countingSort, radixSort } from "./algorithmsCategories/sorting/NonComparativeSorting";
+import { jump1, jump2 } from "./algorithmsCategories/solutions/Index";
 /////////////////////////////////////////////binary search
 const binaryArray = [10, 20, 30, 40, 50, 60];
 const spacialIndexBinaryArray = [-1, 0, 1, 2, 4, 6, 7];
@@ -90,3 +91,8 @@ const bstSuccessProbability = [0.7, 0.2, 0.1];
 const bstFailedProbability = [0.7, 0.2, 0.1, 0.3];
 console.log(optimalBstForSuccessful(bstkeys, bstSuccessProbability));
 console.log(optimalBst(bstkeys, bstSuccessProbability, bstFailedProbability));
+///////////////solution
+const numss1 = [4, 1, 1, 1, 0, 4];
+// const numss2 = [2, 3, 0, 1, 4];
+// console.log(jump1(numss1));
+console.log(jump2(numss1));
