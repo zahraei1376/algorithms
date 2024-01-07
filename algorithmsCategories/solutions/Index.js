@@ -43,3 +43,43 @@ export const jump2 = (nums) => {
 
     return jump;
 };
+////////////////////////
+// Given an array of integers citations where citations[i] is the number of citations a researcher received for their ith paper, return the researcher's h-index.
+// According to the definition of h-index on Wikipedia:
+// The h-index is defined as the maximum value of h such that the given researcher has published at least h papers that have each been cited at least h times.
+
+export const hIndex = (citations) => {
+    // debugger;
+    const temp = citations.sort((a, b) => b - a);
+    let result = 0;
+    for (let i = 0; i < temp.length; i++) {
+        result++;
+        if (temp[i] < result) return result - 1;
+    }
+    return result;
+};
+
+export const hIndex2 = (citations) => {
+    // debugger;
+    let papers = [];
+    let total = 0;
+
+    for (let i = 0; i < citations.length; i++) {
+        if (papers[citations[i]]) {
+            papers[citations[i]] = papers[citations[i]] + 1;
+        } else {
+            papers[citations[i]] = 1;
+        }
+    }
+
+    for (let j = papers.length - 1; j >= 0; j--) {
+        let current = papers[j] ? papers[j] : 0;
+        total = total + current;
+
+        if (total >= j) {
+            return j;
+        }
+    }
+
+    return 0;
+};
