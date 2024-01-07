@@ -83,3 +83,76 @@ export const hIndex2 = (citations) => {
 
     return 0;
 };
+///////////////////////////////////
+// Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+// The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+// You must write an algorithm that runs in O(n) time and without using the division operation.
+
+const calcWithZiro = (nums) => {
+    const result = new Array(nums.length).fill(0);
+    const count = nums.filter(element => element === 0).length;
+    if (count > 1) return result;
+
+    let multiple = 1;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            multiple *= nums[i];
+        }
+    };
+
+    for (let i = 0; i < nums.length; i++) {
+        if (!nums[i]) result[i] = multiple;
+    }
+
+    return result;
+}
+
+const calcWithoutZiro = (nums) => {
+    const result = [];
+    let multiple = 1;
+
+    for (let i = 0; i < nums.length; i++) {
+        multiple *= nums[i];
+    };
+
+    for (let i = 0; i < nums.length; i++) {
+        result[i] = multiple / nums[i];
+    }
+
+    return result;
+}
+
+export const productExceptSelf = (nums) => {
+    // debugger;
+    let result;
+    if (nums.includes(0)) {
+        result = calcWithZiro(nums);
+    } else {
+        result = calcWithoutZiro(nums)
+    }
+    return result;
+};
+
+export const productExceptSelf2 = (nums) => {
+    // debugger;
+    const length = nums.length;
+    const result = new Array(length).fill(1);
+
+    // Calculate the product of elements before the current index
+    let productBefore = 1;
+    for (let i = 0; i < length; i++) {
+        result[i] *= productBefore;
+        productBefore *= nums[i];
+    }
+
+
+    // Calculate the product of elements after the current index
+    let productAfter = 1;
+    for (let i = length - 1; i >= 0; i--) {
+        result[i] *= productAfter;
+        productAfter *= nums[i];
+    }
+
+    return result;
+};
+///////////////////////////////////////
